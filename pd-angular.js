@@ -20,12 +20,18 @@ angular.module('pdAngular', [])
 			scope.focus = function(){
 				el.find(".focus").focus();
 			};
+			
+			scope.el = el;
 		},
 		controller:["$scope", function($scope){
 			
 			$scope.close = function(){
 				$scope.obj = null;
 				$(document).off("keydown.confirmPopup");
+			};
+			
+			$scope.shake = function(){
+				$scope.el.effect('shake');
 			};
 			
 			$rootScope.$on('popup:'+$scope.name, function(event, obj){
