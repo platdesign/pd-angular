@@ -30,10 +30,6 @@ angular.module('pdAngular', [])
 				$(document).off("keydown.confirmPopup");
 			};
 			
-			$scope.shake = function(){
-				$scope.el.effect('shake');
-			};
-			
 			$rootScope.$on('popup:'+$scope.name, function(event, obj){
 
 				$scope.obj = obj || true;
