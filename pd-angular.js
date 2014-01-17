@@ -81,5 +81,19 @@ angular.module('pdAngular', [])
 	}
 }])
 
+.run(['$http', '$rootScope', function($http, $rootScope){
+	$rootScope.$ajax = 'idle';
+	$http.defaults.transformRequest.push(function(data){
+		$rootScope.$ajax = 'active';
+		return data;
+	});
+	$http.defaults.transformResponse.push(function(data){
+		$rootScope.$ajax = 'idle';
+		return data;
+	});
+	
+
+}])
+
 
 ;
